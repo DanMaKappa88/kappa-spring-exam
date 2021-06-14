@@ -22,11 +22,16 @@ public class SuperHeroService {
     }
 
     public Optional<SuperHero> findOne(String id) {
+        return superHeroRepository.findById(id);
     }
 
-    public Team update(SuperHero superHero, String id) {
+    public SuperHero update(SuperHero superHero, String id) {
+
+        return superHeroRepository.save(superHero.toBuilder().id(id).build());
+
     }
 
-    public Team save(SuperHero superHero) {
+    public SuperHero save(SuperHero superHero) {
+        return superHeroRepository.save(superHero);
     }
 }
