@@ -29,13 +29,13 @@ public class SuperHeroController {
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.ACCEPTED)
-    public Team update(@RequestBody SuperHero superHero, @PathVariable String id) {
+    public SuperHero update(@RequestBody SuperHero superHero, @PathVariable String id) {
         return superHeroService.update(superHero, id);
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Team save(@RequestBody SuperHero superHero) {
+    public SuperHero save(@RequestBody SuperHero superHero) {
         return superHeroService.save(superHero);
     }
 
