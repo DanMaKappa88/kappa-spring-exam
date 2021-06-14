@@ -1,4 +1,5 @@
 package hu.flow.academy.kappaspringexam.Model;
 
-public class Team {
+public enum Universe {
+    DC,MARVEL;
 }
