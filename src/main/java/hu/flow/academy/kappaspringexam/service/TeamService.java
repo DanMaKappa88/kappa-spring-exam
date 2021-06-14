@@ -21,8 +21,6 @@ import java.util.logging.Logger;
 public class TeamService {
 
 
-
-
     private final TeamRepository teamRepository;
 
     public List<Team> findAll() {
@@ -35,8 +33,8 @@ public class TeamService {
 
     public Team update(Team team, String id) {
         if (team.getName() == null || team.getName().equals("")) {
-            log.error("Name or Universe must have a value ({name})");
-            throw new ValidateException("Name or Universe must have a value");
+            log.error("Name must have a value ({name})");
+            throw new ValidateException("Name  must have a value");
         }
         return teamRepository.save(team.toBuilder().id(id).build());
     }

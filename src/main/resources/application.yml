@@ -2,9 +2,13 @@
 server:
   port: 8081
 
-logging:
-  level:
-    hu.flowacademy.bands: TRACE
+com.flow:
+
+  exchangeprovider:
+    type: "external"
+
+  paging:
+    defaultLimit: 13
 
 spring:
   datasource:
@@ -13,10 +17,9 @@ spring:
     username: root
     password: P4ssword+
   jpa:
-    show-sql: true
-    database-platform: org.hibernate.dialect.MySQL8Dialect
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
+      use-new-id-generator-mappings: true
 
   h2:
     console:

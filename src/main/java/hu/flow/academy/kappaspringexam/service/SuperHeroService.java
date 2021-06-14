@@ -2,6 +2,7 @@ package hu.flow.academy.kappaspringexam.service;
 
 import hu.flow.academy.kappaspringexam.entity.SuperHero;
 import hu.flow.academy.kappaspringexam.entity.Team;
+import hu.flow.academy.kappaspringexam.exeption.ValidateException;
 import hu.flow.academy.kappaspringexam.repository.SuperHeroRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -29,6 +30,11 @@ public class SuperHeroService {
 
     public SuperHero update(SuperHero superHero, String id) {
 
+        if (superHero.getName() == null || superHero.getName().equals("")) {
+            log.error("Name must have a value ({name})");
+            throw new ValidateException("Name  must have a value");
+        }
+
         return superHeroRepository.save(superHero.toBuilder().id(id).build());
 
     }
@@ -36,4 +42,12 @@ public class SuperHeroService {
     public SuperHero save(SuperHero superHero) {
         return superHeroRepository.save(superHero);
     }
+
+
+   /* public void validate(SuperHero superHero) {
+        if (superHero.getName() == null || superHero.getName().equals("")) {
+            throw new ValidateException("nem adtál meg nevet!!!");
+        }
+
+    }*/
 }
