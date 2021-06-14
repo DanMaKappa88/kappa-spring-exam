@@ -1,5 +1,6 @@
 package hu.flow.academy.kappaspringexam.controller;
 
+import hu.flow.academy.kappaspringexam.entity.SuperHero;
 import hu.flow.academy.kappaspringexam.entity.Team;
 import hu.flow.academy.kappaspringexam.service.SuperHeroService;
 import lombok.RequiredArgsConstructor;
@@ -17,25 +18,25 @@ public class SuperHeroController {
     private final SuperHeroService superHeroService;
 
     @GetMapping
-    public List<Team> findAll() {
+    public List<SuperHero> findAll() {
         return superHeroService.findAll();
     }
 
     @GetMapping("/{id}")
-    public Optional<Team> findOne(@PathVariable String id) {
+    public Optional<SuperHero> findOne(@PathVariable String id) {
         return superHeroService.findOne(id);
     }
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.ACCEPTED)
-    public Team update(@RequestBody Team team, @PathVariable String id) {
-        return superHeroService.update(team, id);
+    public Team update(@RequestBody SuperHero superHero, @PathVariable String id) {
+        return superHeroService.update(superHero, id);
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Team save(@RequestBody Team team) {
-        return superHeroService.save(team);
+    public Team save(@RequestBody SuperHero superHero) {
+        return superHeroService.save(superHero);
     }
 
 }
