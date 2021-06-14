@@ -30,10 +30,11 @@ public class SuperHeroService {
 
     public SuperHero update(SuperHero superHero, String id) {
 
-        if (superHero.getName() == null || superHero.getName().equals("")) {
+        if (superHero.getName() == null || superHero.getName().equals("") || superHero.getUniverse()==null ) {
             log.error("Name must have a value ({name})");
             throw new ValidateException("Name  must have a value");
         }
+
 
         return superHeroRepository.save(superHero.toBuilder().id(id).build());
 

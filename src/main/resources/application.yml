@@ -14,8 +14,8 @@ spring:
   datasource:
     url: jdbc:h2:file:./db/demo
     driverClassName: org.h2.Driver
-    username: root
-    password: P4ssword+
+    username: sa
+    password:
   jpa:
     hibernate:
       ddl-auto: update
